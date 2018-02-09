@@ -1,0 +1,81 @@
+<div class="container">
+  <form autocomplete="off">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1> Nova Pessoa</h1>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <label>Nome</label>
+        <input pInputText type="text" ngModel name="nome"  #nome="ngModel" required minlength="5">
+
+        <app-message [control]="nome" error="required" text="Informe um nome valido"></app-message>
+        <app-message [control]="nome" error="minlength" text="Insira no minimo {{ nome.errors?.minlength?.requiredLength}} caracteres."></app-message>
+
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Logradouro</label>
+        <input pInputText type="text" ngModel name="logradouro"  #logradouro="ngModel" required minlength="20">
+
+        <app-message [control]="logradouro" error="required" text="Informe o logradouro"></app-message>
+        <app-message [control]="logradouro" error="minlength" text="Insira no minimo {{ logradouro.errors?.minlength?.requiredLength}} caracteres."></app-message>
+
+      </div>
+
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label>Número</label>
+        <input pInputText pattern="[0-9*]" type="text" ngModel name="numero"  #numero="ngModel" required minlength="1">
+
+        <app-message [control]="numero" error="required" text="Informe o número"></app-message>
+        <app-message [control]="numero" error="minlength" text="Insira no minimo {{ numero.errors?.minlength?.requiredLength}} caracteres."></app-message>
+
+      </div>
+
+
+      <div class="ui-g-12 ui-md-4 ui-fluid">
+        <label>Complemento</label>
+        <input pInputText type="text">
+      </div>
+
+      <div class="ui-g-12 ui-md-4 ui-fluid">
+        <label>Bairro</label>
+        <input pInputText type="text" ngModel name="bairro"  #bairro="ngModel" required minlength="20">
+
+        <app-message [control]="bairro" error="required" text="Informe o bairro"></app-message>
+        <app-message [control]="bairro" error="minlength" text="Insira no minimo {{ bairro.errors?.minlength?.requiredLength}} caracteres."></app-message>
+
+      </div>
+
+      <div class="ui-g-12 ui-md-4 ui-fluid">
+        <label>CEP</label>
+        <p-inputMask mask="99.999-999" ngModel name="cep"  #cep="ngModel" required minlength="8"></p-inputMask>
+
+        <app-message [control]="cep" error="required" text="Informe o CEP"></app-message>
+        <app-message [control]="cep" error="minlength" text="Insira no minimo {{ cep.errors?.minlength?.requiredLength}} caracteres."></app-message>
+      </div>
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label>Cidade</label>
+        <input pInputText type="text" ngModel name="cidade"  #cidade="ngModel" required>
+
+        <app-message [control]="cidade" error="required" text="Informe a cidade"></app-message>
+      </div>
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label>Estado</label>
+        <input pInputText type="text" ngModel name="estado"  #estado="ngModel" required>
+
+        <app-message [control]="estado" error="required" text="Informe o CEP"></app-message>
+      </div>
+
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Salvar"></button>
+        <button pButton type="button" label="Novo" class="ui-button-info"></button>
+        <a ref="javascript:;">Voltar para a pesquisa</a>
+      </div>
+
+    </div>
+  </form>
+</div>
